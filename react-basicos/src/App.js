@@ -4,6 +4,7 @@ import "./App.css";
 import Componente from "./components/Componente";
 import Propiedades from "./components/Propiedades";
 import Estado from "./components/Estado";
+import RenderizadoCondicional from "./components/RenderizadoCondicional";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Propiedades cadena="Esto es una cadena de texto" numero={19} booleano={false} arreglo={[1, 2, 3]} objeto={{ nombre: "Jon", correo: "jonmircha@gmail.com" }} funcion={(num) => num * num} elementoReact={<i>Esto es un elemento React</i>} componenteReact={<Componente msg="Soy un componente pasado como Prop" />} />
           <hr />
           <Estado />
+          <hr />
+          <RenderizadoCondicional />
         </section>
       </header>
     </div>
