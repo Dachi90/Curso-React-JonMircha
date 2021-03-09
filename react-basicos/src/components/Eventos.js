@@ -83,11 +83,11 @@ const Boton = ({ myOnClick }) => <button onClick={myOnClick}>Botón hecho compon
 
 export class MasSobreEventos extends Component {
   handleClickk = (e, mensaje) => {
-    console.log(e);
-    console.log(e.nativeEvent);
-    console.log(e.target);
-    console.log(e.nativeEvent.target);
-    console.log(mensaje);
+    //console.log(e);
+    //console.log(e.nativeEvent);
+    //console.log(e.target);
+    //console.log(e.nativeEvent.target);
+    //console.log(mensaje);
   };
 
   render() {
