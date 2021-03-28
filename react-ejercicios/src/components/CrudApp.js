@@ -39,14 +39,17 @@ const CrudApp = () => {
     setDb([...db, data]);
   };
 
-  const updateData = (data) => {};
+  const updateData = (data) => {
+    let newData = db.map((el) => (el.id === data.id ? data : el));
+    setDb(newData);
+  };
 
-  const delateData = (id) => {};
+  const deleteData = (id) => {};
   return (
     <div>
       <h2>CRUD App</h2>
       <CrudForm createData={createData} updateData={updateData} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit} />
-      <CrudTable data={db} setDataToEdit={setDataToEdit} delateData={delateData} />
+      <CrudTable data={db} setDataToEdit={setDataToEdit} deleteData={deleteData} />
     </div>
   );
 };
