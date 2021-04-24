@@ -1,4 +1,5 @@
 import React from "react";
+import ContactForm from "./components/ContactForm";
 import CrudApi from "./components/CrudApi";
 import CrudApp from "./components/CrudApp";
 import SelectsAnidados from "./components/SelectsAnidados";
@@ -9,8 +10,9 @@ function App() {
     <>
       <h1>Ejercicios con React</h1>
       <hr />
-      <SelectsAnidados />
+      <ContactForm />
       <hr />
+      <SelectsAnidados />
       <hr />
       <SongSearch />
       <hr />
