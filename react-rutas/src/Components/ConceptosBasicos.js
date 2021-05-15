@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Acerca from "../pages/Acerca";
 import Contacto from "../pages/Contacto";
+import Error404 from "../pages/Error404";
+import Home from "../pages/Home";
 
 const ConceptosBasicos = () => {
   return (
@@ -8,25 +10,10 @@ const ConceptosBasicos = () => {
       <h2>Conceptos básicos</h2>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <h3>Home</h3>
-            <p>Bienvenidos al tema de las Rutas en React</p>
-          </Route>
-          <Route exact path="/acerca">
-            <Acerca />
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos repellat dolorem voluptatem accusamus in, laborum et ab fugiat animi. Delectus, eum aliquam! Fugit quos rem amet ipsum in ea debitis.</p>
-          </Route>
-          {/* <Route exact path="/contacto" component={Contacto}/> */}
-          <Route
-            exact
-            path="/contacto"
-            children={
-              <>
-                {" "}
-                <Contacto /> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis autem, quisquam corporis soluta tempore veritatis. Aut nulla, animi amet necessitatibus, assumenda, ex accusantium perferendis ipsum molestias porro repellat quod a?</p>
-              </>
-            }
-          ></Route>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/acerca" component={Acerca} />
+          <Route exact path="/contacto" component={Contacto} />
+          <Route path="*" component={Error404} />
         </Switch>
       </Router>
     </div>
