@@ -32,6 +32,11 @@ const MenuConceptos = () => {
             No existe
           </NavLink>
         </li>
+        <li>
+          <span>Parámetros:</span>
+          <Link to="/usuario/jonmircha">jonmircha</Link>
+          <Link to="/usuario/kenai">kEnAi</Link>
+        </li>
       </ol>
     </nav>
   );
