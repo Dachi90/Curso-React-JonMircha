@@ -1,4 +1,6 @@
 import ConceptosBasicos from "./Components/ConceptosBasicos";
+import CrudApi from "./Components/CrudApi";
+import SongSearch from "./Components/SongSearch";
 
 function App() {
   return (
@@ -7,6 +9,10 @@ function App() {
       <a href="http://reactrouter.com/web/guides/quick-start" target="_blank" rel="noreferrer">
         Documentación
       </a>
+      <hr />
+      <CrudApi />
+      <hr />
+      <SongSearch />
       <hr />
       <ConceptosBasicos />
     </div>
