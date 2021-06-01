@@ -12,9 +12,9 @@ function App() {
       <hr />
       <CrudApi />
       <hr />
-      <SongSearch />
-      <hr />
-      <ConceptosBasicos />
+      {/* <SongSearch />
+      <hr /> */}
+      {/* <ConceptosBasicos /> */}
     </div>
   );
 }
