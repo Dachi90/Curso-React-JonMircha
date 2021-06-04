@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Seiya",
-      "constellation": "Pegaso"
+      "constellation": "Pegasososososo"
     },
     {
       "id": 2,
@@ -13,7 +13,7 @@
     {
       "id": 3,
       "name": "Hyoga",
-      "constellation": "Cisne"
+      "constellation": "Cisneeeeeeeee"
     },
     {
       "id": 4,
@@ -44,6 +44,16 @@
       "name": "Saga",
       "constellation": "Geminis",
       "id": 1622549516751
+    },
+    {
+      "name": "hola ",
+      "constellation": "adios",
+      "id": 1622801862293
+    },
+    {
+      "name": "agregando",
+      "constellation": "agregado",
+      "id": 1622802396789
     }
   ]
 }
