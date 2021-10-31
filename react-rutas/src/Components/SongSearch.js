@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HashRouter, Link, Route, Switch } from "react-router-dom";
 import { helpHttp } from "../helpers/helpHttp";
 import Error404 from "../pages/Error404";
+import SongPage from "../pages/SongPage";
 import Loader from "./Loader";
 import SongDetails from "./SongDetails";
 import SongForm from "./SongForm";
@@ -11,8 +12,8 @@ let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
 
 const SongSearch = () => {
   const [search, setSearch] = useState(null);
-  const [bio, setBio] = useState(null);
   const [lyric, setLyric] = useState(null);
+  const [bio, setBio] = useState(null);
   const [loading, setLoading] = useState(false);
   const [mySongs, setMySongs] = useState(mySongsInit);
 
@@ -49,17 +50,33 @@ const SongSearch = () => {
   };
 
   const handleSaveSong = () => {
-    alert("Salvando canción en favoritos");
-    //setMySongs(¿?)
+    alert("Salvando canción en Favoritos");
+    let currentSong = {
+      search,
+      lyric,
+      bio,
+    };
+
+    let songs = [...mySongs, currentSong];
+    setMySongs(songs);
+    setSearch(null);
+    localStorage.setItem("mySongs", JSON.stringify(songs));
   };
 
   const handleDeleteSong = (id) => {
-    alert(`Eliminando canción con el id ${id}`);
+    //alert(`Eliminando canción con el id: ${id}`);
+    let isDelete = window.confirm(`¿Estás seguro de eliminar la canción con el id "${id}"`);
+
+    if (isDelete) {
+      let songs = mySongs.filter((el, index) => index !== id);
+      setMySongs(songs);
+      localStorage.setItem("mySongs", JSON.stringify(songs));
+    }
   };
 
   return (
     <div>
-      <HashRouter basename="/canciones">
+      <HashRouter basename="canciones">
         <header>
           <h2>Song Search</h2>
           <Link to="/">Home</Link>
@@ -70,11 +87,9 @@ const SongSearch = () => {
             <Route exact path="/">
               <SongForm handleSearch={handleSearch} handleSaveSong={handleSaveSong} />
               <SongTable mySongs={mySongs} handleDeleteSong={handleDeleteSong} />
-              {search && !loading && <SongDetails search={search} bio={bio} lyric={lyric} />}
+              {search && !loading && <SongDetails search={search} lyric={lyric} bio={bio} />}
             </Route>
-            <Route exact path="/canciones/:id">
-              <h2>Página de canción</h2>
-            </Route>
+            <Route exact path="/:id" children={<SongPage mySongs={mySongs} />} />
             <Route path="*" children={<Error404 />} />
           </Switch>
         </article>

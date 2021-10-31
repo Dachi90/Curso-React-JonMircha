@@ -1,9 +1,9 @@
 import SongTableRow from "./SongTableRow";
 
-const SongTable = (mySongs, handleDeleteSong) => {
+const SongTable = ({ mySongs, handleDeleteSong }) => {
   return (
     <div>
-      <h3>Mis canciones favoritas</h3>
+      <h3>Mis Canciones Favoritas</h3>
       <table>
         <thead>
           <tr>
@@ -17,7 +17,7 @@ const SongTable = (mySongs, handleDeleteSong) => {
             mySongs.map((el, index) => <SongTableRow key={index} el={el} id={index} handleDeleteSong={handleDeleteSong} />)
           ) : (
             <tr>
-              <td colSpan="4">Sin canciones </td>
+              <td colSpan="4">Sin Canciones Favoritas</td>
             </tr>
           )}
         </tbody>
