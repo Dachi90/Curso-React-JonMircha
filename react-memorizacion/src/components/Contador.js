@@ -20,11 +20,11 @@ const Contador = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <h2>Contador</h2>
+      <h3>{contador}</h3>
       <nav>
         <button onClick={sumar}>+</button>
         <button onClick={restar}>-</button>
       </nav>
-      <h3>{contador}</h3>
       <input type="text" onChange={handleInput} value={input} />
       <ContadorHijo contador={contador} sumar={sumar} restar={restar} />
     </div>
