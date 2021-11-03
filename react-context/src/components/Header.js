@@ -1,5 +1,5 @@
-const Header = ({ theme, handleTheme, texts, handleLanguage, handleLogin, loginStatus }) => {
-  console.log(loginStatus);
+const Header = ({ theme, handleTheme, texts, handleLanguage, handleAuth, auth }) => {
+  console.log(auth);
   return (
     <header className={theme}>
       <h2>{texts.headerTitle}</h2>
@@ -12,7 +12,7 @@ const Header = ({ theme, handleTheme, texts, handleLanguage, handleLogin, loginS
       <label htmlFor="ligth">{texts.headerLight}</label>
       <input type="radio" name="theme" id="dark" onClick={handleTheme} value="dark" />
       <label htmlFor="dark">{texts.headerDark}</label>
-      <button onClick={handleLogin}>{loginStatus ? texts.buttonLogout : texts.buttonLogin}</button>
+      <button onClick={handleAuth}>{auth ? texts.buttonLogout : texts.buttonLogin}</button>
     </header>
   );
 };

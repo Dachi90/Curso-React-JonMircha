@@ -5,6 +5,7 @@ import Main from "./Main";
 
 const initialTheme = "light";
 const initialLanguage = "es";
+const initialAuth = null;
 
 const translations = {
   es: {
@@ -26,7 +27,7 @@ const translations = {
     headerDark: "Dark",
     buttonLogin: "Login",
     buttonLogout: "Logout",
-    mainWelcome: "Welcome",
+    mainWelcome: "Welcome guest",
     mainHello: "Hello user",
     mainContent: "My main content",
     footerTitle: "My footer",
@@ -37,7 +38,7 @@ const MyPage = () => {
   const [theme, setTheme] = useState(initialTheme);
   const [language, setLanguage] = useState(initialLanguage);
   const [texts, setTexts] = useState(translations[language]);
-  const [login, setLogin] = useState(false);
+  const [auth, setAuth] = useState(initialAuth);
 
   const handleTheme = (e) => {
     console.log(e.target.value);
@@ -59,19 +60,18 @@ const MyPage = () => {
     }
   };
 
-  const handleLogin = () => {
-    /* if (login === false) {
-      setLogin(true);
+  const handleAuth = (e) => {
+    if (auth) {
+      setAuth(null);
     } else {
-      setLogin(false);
-    } */
-    !login ? setLogin(true) : setLogin(false);
+      setAuth(true);
+    }
   };
 
   return (
     <div className="my-page">
-      <Header theme={theme} handleTheme={handleTheme} texts={texts} handleLanguage={handleLanguage} handleLogin={handleLogin} loginStatus={login} />
-      <Main theme={theme} texts={texts} loginStatus={login} />
+      <Header theme={theme} handleTheme={handleTheme} texts={texts} handleLanguage={handleLanguage} handleAuth={handleAuth} auth={auth} />
+      <Main theme={theme} texts={texts} auth={auth} />
       <Footer theme={theme} texts={texts} />
     </div>
   );
