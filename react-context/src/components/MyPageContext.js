@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ThemeProvider } from "../context/ThemeContext";
-import FooterContext from "./Footer";
-import HeaderContext from "./Header";
-import MainContext from "./Main";
+import FooterContext from "./FooterContext";
+import HeaderContext from "./HeaderContext";
+import MainContext from "./MainContext";
 
 const initialLanguage = "es";
 const initialAuth = null;
