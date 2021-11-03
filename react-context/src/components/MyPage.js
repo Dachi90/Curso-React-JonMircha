@@ -37,6 +37,7 @@ const MyPage = () => {
   const [theme, setTheme] = useState(initialTheme);
   const [language, setLanguage] = useState(initialLanguage);
   const [texts, setTexts] = useState(translations[language]);
+  const [login, setLogin] = useState(false);
 
   const handleTheme = (e) => {
     console.log(e.target.value);
@@ -58,10 +59,19 @@ const MyPage = () => {
     }
   };
 
+  const handleLogin = () => {
+    /* if (login === false) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    } */
+    !login ? setLogin(true) : setLogin(false);
+  };
+
   return (
     <div className="my-page">
-      <Header theme={theme} handleTheme={handleTheme} texts={texts} handleLanguage={handleLanguage} />
-      <Main theme={theme} texts={texts} />
+      <Header theme={theme} handleTheme={handleTheme} texts={texts} handleLanguage={handleLanguage} handleLogin={handleLogin} loginStatus={login} />
+      <Main theme={theme} texts={texts} loginStatus={login} />
       <Footer theme={theme} texts={texts} />
     </div>
   );

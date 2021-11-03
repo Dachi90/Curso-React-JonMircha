@@ -1,8 +1,7 @@
-const Main = ({ theme, texts }) => {
+const Main = ({ theme, texts, loginStatus }) => {
   return (
     <main className={theme}>
-      <p>{texts.mainWelcome}</p>
-      <p>{texts.mainHello}</p>
+      {loginStatus ? <p>{texts.mainHello}</p> : <p>{texts.mainWelcome}</p>}
       <p>{texts.mainContent}</p>
     </main>
   );
