@@ -1,5 +1,4 @@
 const Header = ({ theme, handleTheme, texts, handleLanguage, handleAuth, auth }) => {
-  console.log(auth);
   return (
     <header className={theme}>
       <h2>{texts.headerTitle}</h2>
