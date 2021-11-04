@@ -20,13 +20,13 @@ const MyPageContext = () => {
 
   return (
     <div className="my-page">
-      <LanguageProvider>
-        <ThemeProvider>
+      <ThemeProvider>
+        <LanguageProvider>
           <HeaderContext handleAuth={handleAuth} auth={auth} />
           <MainContext auth={auth} />
           <FooterContext />
-        </ThemeProvider>
-      </LanguageProvider>
+        </LanguageProvider>
+      </ThemeProvider>
     </div>
   );
 };
