@@ -1,32 +1,22 @@
-import { useState } from "react";
 import { LanguageProvider } from "../context/LanguageContext";
+import { SessionProvider } from "../context/SessionContext";
 import { ThemeProvider } from "../context/ThemeContext";
 import FooterContext from "./FooterContext";
 import HeaderContext from "./HeaderContext";
 import MainContext from "./MainContext";
 
-const initialAuth = null;
-
 const MyPageContext = () => {
-  const [auth, setAuth] = useState(initialAuth);
-
-  const handleAuth = (e) => {
-    if (auth) {
-      setAuth(null);
-    } else {
-      setAuth(true);
-    }
-  };
-
   return (
     <div className="my-page">
-      <ThemeProvider>
-        <LanguageProvider>
-          <HeaderContext handleAuth={handleAuth} auth={auth} />
-          <MainContext auth={auth} />
-          <FooterContext />
-        </LanguageProvider>
-      </ThemeProvider>
+      <SessionProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <HeaderContext />
+            <MainContext />
+            <FooterContext />
+          </LanguageProvider>
+        </ThemeProvider>
+      </SessionProvider>
     </div>
   );
 };
