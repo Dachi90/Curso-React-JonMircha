@@ -2,6 +2,12 @@ import { useReducer } from "react";
 
 const initialState = { contador: 0 };
 
+const init = (initialState) => {
+  return {
+    contador: initialState.contador + 100,
+  };
+};
+
 const TYPES = {
   INCREMENT: "INCREMENT",
   INCREMENT_5: "INCREMENT_5",
@@ -29,7 +35,9 @@ function reducer(state, action) {
 
 const Contador = () => {
   //const [contador, setContador] = useState(0);
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+  //El tercer parametro del hook useReducer, init, se utilizaría para darle un valor la primera vez que se carga el componente, la verdad es que se utilia muy poco.
+  const [state, dispatch] = useReducer(reducer, initialState, init);
 
   //const sumar = () => setContador(contador + 1);
   const sumar = () => dispatch({ type: TYPES.INCREMENT });
